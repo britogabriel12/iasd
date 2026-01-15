@@ -81,7 +81,7 @@
         .container {
             background: var(--container-bg);
             width: 92%;
-            max-width: 420px;
+            max-width: 520px;
             padding: 25px 22px;
             border-radius: 16px;
             box-shadow: 0 8px 20px var(--shadow);
@@ -104,6 +104,30 @@
             font-weight: normal;
             color: var(--text-secondary);
             margin-bottom: 20px;
+        }
+
+        .welcome-message {
+            font-size: 16px;
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .bible-verse {
+            font-size: 13px;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 20px;
+            padding: 12px 15px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.02), rgba(0,0,0,0.05));
+            border-left: 3px solid #6366f1;
+            border-radius: 4px;
+            line-height: 1.5;
+        }
+
+        html.dark-theme .bible-verse {
+            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.08));
         }
 
         p {
@@ -137,9 +161,140 @@
         .whatsapp  { background: #25D366; }
         .android   { background: #458b65; }
         .ios       { background: #000000; }
-        .youtube   { background: #dd6c6c; }
+        .youtube   { background: #970404; }
         .youtube-official { background: #FF0000; }
         .location  { background: #4285F4; }
+        .prayer    { background: #9C27B0; }
+
+        /* Blocos de Departamentos */
+        .department-block {
+            background: linear-gradient(135deg, var(--button-bg), var(--container-bg));
+            border: 2px solid var(--button-border);
+            border-radius: 14px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .department-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+            display: block;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .desbravadores-icon { color: #f85d04; }
+        .aventureiros-icon { color: #6a04f0; }
+        .asa-icon { color: #08ec5f; }
+
+        .department-block h3 {
+            font-size: 18px;
+            margin: 10px 0 12px 0;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .department-block p {
+            font-size: 13px;
+            color: var(--text-tertiary);
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        a.btn-primary, a.btn-secondary {
+            text-decoration: none;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+            color: #fff;
+        }
+
+        a.btn-primary:hover, a.btn-secondary:hover {
+            transform: scale(1.02);
+            opacity: 0.95;
+        }
+
+        a.btn-primary {
+            background: #f85d04;
+        }
+
+        a.btn-primary.aventureiros {
+            background: #6a04f0;
+        }
+
+        a.btn-primary.asa {
+            background: #08ec5f;
+        }
+
+        a.btn-secondary {
+            background: var(--button-bg);
+            border: 2px solid #f85d04;
+            color: #ee5a05;
+        }
+
+        a.btn-secondary.aventureiros {
+            border-color: #6a04f0;
+            color: #6a04f0;
+        }
+
+        a.btn-secondary.asa {
+            border-color: #08ec5f;
+            color: #08ec5f;
+        }
+
+        @media (max-width: 480px) {
+            .department-block {
+                padding: 18px;
+                margin: 16px 0;
+            }
+
+            .department-icon {
+                font-size: 40px;
+                height: 50px;
+            }
+
+            .department-block h3 {
+                font-size: 16px;
+            }
+
+            .department-block p {
+                font-size: 12px;
+            }
+        }
+
+        .map-container {
+            margin: 25px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px var(--shadow);
+            display: none;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 320px;
+            border: none;
+            display: none;
+        }
+
+        .map-label {
+            display: none;
+        }
 
         footer {
             margin-top: 20px;
@@ -159,6 +314,7 @@
             .container {
                 padding: 20px 18px;
                 margin-bottom: 10px;
+                max-width: 100%;
             }
 
             h1 {
@@ -167,6 +323,32 @@
 
             h2 {
                 font-size: 14px;
+            }
+
+            .welcome-message {
+                font-size: 15px;
+            }
+
+            .bible-verse {
+                font-size: 12px;
+            }
+
+            .department-block {
+                padding: 18px;
+                margin: 16px 0;
+            }
+
+            .department-icon {
+                font-size: 40px;
+                height: 50px;
+            }
+
+            .department-block h3 {
+                font-size: 16px;
+            }
+
+            .department-block p {
+                font-size: 12px;
             }
         }
     </style>
@@ -186,6 +368,16 @@
 
         <h1>IASD Vila Eduardo</h1>
         <h2>Igreja Adventista do Sétimo Dia</h2>
+
+        <!-- MENSAGEM DINÂMICA DE BOAS-VINDAS -->
+        <div class="welcome-message" id="welcomeMessage">
+            Bem-vindo!
+        </div>
+
+        <!-- VERSO BÍBLICO ROTATIVO -->
+        <div class="bible-verse" id="bibleVerse">
+            "Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito, para que todo aquele que nele crê não pereça, mas tenha a vida eterna." — João 3:16
+        </div>
 
         <p>
              Seja muito bem-vindo à IASD Vila Eduardo!
@@ -213,6 +405,11 @@ Também disponibilizamos orientações para você aprender a chegar até a Vila 
             <i class="fas fa-map-location-dot"></i> Como chegar na IASD Vila Eduardo?
         </a>
 
+        <!-- PEDIDO DE ORAÇÃO -->
+        <a class="link prayer" href="https://docs.google.com/forms/d/e/1FAIpQLSfxJ1zERYx-LDJ_Z7F_1FSOq9HuhE4L1eIFQt_JY7SWm8-zTA/viewform?usp=publish-editor" target="_blank">
+            <i class="fas fa-hands-praying"></i> Pedido de Oração
+        </a>
+
         <!-- WHATSAPP -->
         <a class="link whatsapp" href="https://wa.me/558781064135" target="_blank">
             <i class="fab fa-whatsapp"></i> WhatsApp
@@ -230,8 +427,77 @@ Também disponibilizamos orientações para você aprender a chegar até a Vila 
 
         <!-- APRENDA A DIZIMAR E OFERTAR -->
         <a class="link youtube" href="https://www.youtube.com/watch?v=TAvHXXeeRrU" target="_blank">
-            <i class="fab fa-youtube"></i> Aprenda a dizimar e fertar pelo 7Me
+            <i class="fab fa-youtube"></i> Aprenda a dizimar e Ofertar pelo 7Me
         </a>
+
+        <!-- SEÇÃO DE DEPARTAMENTOS -->
+        <hr style="margin: 30px 0; border: none; border-top: 1px solid var(--button-border);">
+
+        <!-- CLUBE DE DESBRAVADORES -->
+        <div class="department-block">
+            <span class="department-icon desbravadores-icon">
+                <i class="fas fa-compass"></i>
+            </span>
+            <h3>Clube de Desbravadores</h3>
+            <p>
+                Desenvolvimento integral de crianças e adolescentes através de atividades educacionais, 
+                espirituais e recreativas. Venha fazer parte desta grande família!
+            </p>
+            <div class="button-group">
+                <a class="btn-primary" href="https://wa.me/5587988779496" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Quero fazer parte dos Desbravadores
+                </a>
+                <a class="btn-secondary" href="https://www.youtube.com/watch?v=BMSVGjp_8Zs&pp=ygUbaGlzdMOzcmlhIGRvcyBkZXNicmF2YWRvcmVz" target="_blank">
+                    <i class="fab fa-youtube"></i> Conheça a história dos Desbravadores
+                </a>
+                <a class="btn-secondary" href="https://www.instagram.com/cluberaizesdosertao" target="_blank">
+                    <i class="fab fa-instagram"></i> Instagram – Raízes do Sertão
+                </a>
+            </div>
+        </div>
+
+        <!-- CLUBE DE AVENTUREIROS -->
+        <div class="department-block">
+            <span class="department-icon aventureiros-icon">
+                <i class="fas fa-star"></i>
+            </span>
+            <h3>Clube de Aventureiros</h3>
+            <p>
+                Programa especial para crianças menores, focado em aprendizagem, diversão e crescimento espiritual. 
+                Pais, tragam seus filhos para esta jornada inesquecível!
+            </p>
+            <div class="button-group">
+                <a class="btn-primary aventureiros" href="https://wa.me/5587988574513" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Quero fazer parte dos Aventureiros
+                </a>
+                <a class="btn-secondary aventureiros" href="https://www.youtube.com/watch?v=cGTOP7pCxCw&pp=ygUfY2x1YmUgZGUgYXZlbnR1cmVpcm9zIGhpc3TDs3JpYQ%3D%3D" target="_blank">
+                    <i class="fab fa-youtube"></i> Conheça a história dos Aventureiros
+                </a>
+                <a class="btn-secondary aventureiros" href="https://www.instagram.com/clubemontecastelinho" target="_blank">
+                    <i class="fab fa-instagram"></i> Instagram – Monte Castelinho
+                </a>
+            </div>
+        </div>
+
+        <!-- AÇÃO SOLIDÁRIA ADVENTISTA -->
+        <div class="department-block">
+            <span class="department-icon asa-icon">
+                <i class="fas fa-heart"></i>
+            </span>
+            <h3>Ação Solidária Adventista – ASA</h3>
+            <p>
+                Serviço cristão dedicado ao apoio de famílias necessitadas e à transformação social de nossa comunidade. 
+                Sua contribuição faz diferença!
+            </p>
+            <div class="button-group">
+                <a class="btn-primary asa" href="https://wa.me/5587988173638" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Quero doar para a ASA
+                </a>
+                <a class="btn-secondary asa" href="https://www.instagram.com/acaosolidaria.ve" target="_blank">
+                    <i class="fab fa-instagram"></i> Instagram – ASA Vila Eduardo
+                </a>
+            </div>
+        </div>
 
         <footer>
             "Cada um contribua segundo o que propôs no seu coração."
@@ -276,6 +542,54 @@ Também disponibilizamos orientações para você aprender a chegar até a Vila 
 
         // Inicializar tema ao carregar
         initTheme();
+
+        // ========== MENSAGEM DINÂMICA DE BOAS-VINDAS ==========
+        function updateWelcomeMessage() {
+            const hour = new Date().getHours();
+            const day = new Date().getDay();
+            const dayNames = ['domingo', 'segunda-feira', 'terça-feira', 'quarta-feira', 'quinta-feira', 'sexta-feira', 'sábado'];
+            
+            let greeting = '';
+            let timeOfDay = '';
+
+            // Mensagem conforme horário
+            if (hour < 12) {
+                timeOfDay = 'Bom dia';
+            } else if (hour < 18) {
+                timeOfDay = 'Boa tarde';
+            } else {
+                timeOfDay = 'Boa noite';
+            }
+
+            // Mensagem conforme dia da semana
+            const dayGreeting = `${timeOfDay}! Que alegria ter você conosco nesta ${dayNames[day]}!`;
+            
+            document.getElementById('welcomeMessage').textContent = dayGreeting;
+        }
+
+        // ========== VERSO BÍBLICO ROTATIVO ==========
+        function getRandomBibleVerse() {
+            const verses = [
+                '"Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito, para que todo aquele que nele crê não pereça, mas tenha a vida eterna." — João 3:16',
+                '"Vinde a mim, todos os que estais cansados e oprimidos, e eu vos aliviarei." — Mateus 11:28',
+                '"Porque, na verdade, vos digo que, se tiverdes fé como um grão de mostarda, direis a este monte: Passa daqui para acolá, e há de passar; e nada vos será impossível." — Mateus 17:20',
+                '"O Senhor é a minha luz e a minha salvação; a quem terei medo?" — Salmo 27:1',
+                '"Confiai no Senhor de todo o vosso coração, e não vos apoieis na vossa inteligência." — Provérbios 3:5',
+                '"Porque eu bem sei os pensamentos que tenho a vosso respeito, diz o Senhor; pensamentos de paz, e não de mal, para vos dar um fim esperado." — Jeremias 29:11',
+                '"Lançai toda a vossa ansiedade sobre ele, porque ele tem cuidado de vós." — 1 Pedro 5:7',
+                '"A lei do Senhor é perfeita e restaura a alma; o testemunho do Senhor é fiel e dá sabedoria aos simples." — Salmo 19:7',
+                '"Bendize, ó minha alma, ao Senhor, e não te esqueças de nenhum de seus benefícios." — Salmo 103:2',
+                '"Tudo posso fazer em Cristo, que me fortalece." — Filipenses 4:13',
+                '"Mas aos que receberam, deu-lhes o poder de serem feitos filhos de Deus." — João 1:12',
+                '"Se confessarmos os nossos pecados, ele é fiel e justo para nos perdoar os pecados e nos purificar de toda a injustiça." — 1 João 1:9'
+            ];
+            
+            return verses[Math.floor(Math.random() * verses.length)];
+        }
+
+        // Chamar funções de conteúdo dinâmico
+        updateWelcomeMessage();
+        document.getElementById('bibleVerse').textContent = getRandomBibleVerse();
     </script>
 </body>
 </html>
