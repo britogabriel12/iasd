@@ -35,6 +35,33 @@
             --button-border: #444;
         }
 
+        /* ========== MODO SÁBADO ADVENTISTA ==========*/
+        html.sabbath-mode {
+            --bg-gradient-1: #f5f3f0;
+            --bg-gradient-2: #ede8e2;
+            --container-bg: #faf8f5;
+            --text-primary: #3d3d3d;
+            --text-secondary: #6b6b6b;
+            --text-tertiary: #7a7a7a;
+            --text-footer: #999;
+            --shadow: rgba(0, 0, 0, 0.08);
+            --button-bg: #faf8f5;
+            --button-border: #e5ddd3;
+        }
+
+        html.sabbath-mode.dark-theme {
+            --bg-gradient-1: #1a1814;
+            --bg-gradient-2: #221f1a;
+            --container-bg: #2a2620;
+            --text-primary: #e8e5e0;
+            --text-secondary: #d0ccc5;
+            --text-tertiary: #c0bbb3;
+            --text-footer: #a0a09a;
+            --shadow: rgba(0, 0, 0, 0.3);
+            --button-bg: #2a2620;
+            --button-border: #4a4438;
+        }
+
         * {
             transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
@@ -70,14 +97,21 @@
             box-shadow: 0 2px 8px var(--shadow);
             z-index: 1000;
             padding-top: 2px;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .theme-toggle:hover {
-            transform: scale(1.1);
+            transform: scale(1.15);
+            box-shadow: 0 6px 16px rgba(99, 102, 241, 0.3);
         }
 
         .theme-toggle:active {
-            transform: scale(0.95);
+            transform: scale(0.92);
+        }
+
+        .theme-toggle:focus {
+            outline: 2px solid #6366f1;
+            outline-offset: 2px;
         }
 
         .theme-toggle-label {
@@ -109,6 +143,7 @@
             border-radius: 16px;
             box-shadow: 0 8px 20px var(--shadow);
             text-align: center;
+            animation: slideUp 0.8s ease-out;
         }
 
         .logo {
@@ -153,6 +188,211 @@
             background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.08));
         }
 
+        /* ========== ANIMAÇÕES E TRANSIÇÕES ==========*/
+        /* Respeitar preferência de movimento reduzido */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Keyframes de animações */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 0 8px rgba(99, 102, 241, 0);
+            }
+        }
+
+        @keyframes breathe {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes breatheSlow {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.85;
+            }
+        }
+
+        @keyframes spinIcon {
+            from {
+                transform: rotate(0deg) scale(1);
+            }
+            to {
+                transform: rotate(360deg) scale(1);
+            }
+        }
+
+        @keyframes pulseIcon {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.15);
+            }
+        }
+
+        @keyframes bounceIcon {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes glowIcon {
+            0%, 100% {
+                text-shadow: none;
+            }
+            50% {
+                text-shadow: 0 0 15px rgba(248, 93, 4, 0.6);
+            }
+        }
+
+        @keyframes glowIconPurple {
+            0%, 100% {
+                text-shadow: none;
+            }
+            50% {
+                text-shadow: 0 0 15px rgba(106, 4, 240, 0.6);
+            }
+        }
+
+        @keyframes glowIconGreen {
+            0%, 100% {
+                text-shadow: none;
+            }
+            50% {
+                text-shadow: 0 0 15px rgba(8, 236, 95, 0.6);
+            }
+        }
+
+        /* Classes de animação para elementos */
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .slide-up {
+            animation: slideUp 0.7s ease-out forwards;
+        }
+
+        .zoom-in {
+            animation: zoomIn 0.6s ease-out forwards;
+        }
+
+        /* Delay para animação em cascata */
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+
+        /* Logo com animação de entrada */
+        .logo {
+            animation: zoomIn 0.8s ease-out;
+        }
+
+        /* Efeito ripple para botões */
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            transform: scale(0);
+            animation: rippleEffect 0.6s ease-out;
+            pointer-events: none;
+        }
+
+        @keyframes rippleEffect {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* ========== ESTILOS ESPECÍFICOS DO MODO SÁBADO ==========*/
+        html.sabbath-mode .welcome-message {
+            animation: fadeIn 2s ease-in-out forwards, breatheSlow 4s ease-in-out 2s infinite;
+        }
+
+        html.sabbath-mode .bible-verse {
+            animation: slideUp 1.2s ease-out;
+            opacity: 1 !important;
+        }
+
+        html.sabbath-mode a.link {
+            transition: all 0.5s ease-in-out;
+        }
+
+        html.sabbath-mode a.link:hover {
+            transform: translateY(-2px) scale(1.01);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        html.sabbath-mode a.btn-primary,
+        html.sabbath-mode a.btn-secondary {
+            transition: all 0.5s ease-in-out;
+        }
+
+        html.sabbath-mode a.btn-primary:hover,
+        html.sabbath-mode a.btn-secondary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        html.sabbath-mode .department-block {
+            transition: all 0.6s ease-in-out;
+        }
+
+        html.sabbath-mode .department-block:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
         p {
             font-size: 14px;
             color: var(--text-tertiary);
@@ -171,12 +411,41 @@
             border-radius: 10px;
             font-size: 15px;
             font-weight: 600;
-            transition: transform 0.2s ease, opacity 0.2s ease;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        a.link::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
         }
 
         a.link:hover {
-            transform: scale(1.02);
-            opacity: 0.95;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        a.link:active {
+            transform: translateY(-1px) scale(0.98);
+        }
+
+        a.link:focus {
+            outline: 2px solid #6366f1;
+            outline-offset: 2px;
+        }
+
+        a.link:active::before {
+            width: 300px;
+            height: 300px;
         }
 
         .instagram { background: #E1306C; }
@@ -197,6 +466,15 @@
             padding: 20px;
             margin: 20px 0;
             text-align: center;
+            animation: slideUp 0.7s ease-out forwards;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .department-block:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+            border-color: rgba(99, 102, 241, 0.3);
         }
 
         .department-icon {
@@ -207,11 +485,48 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        .desbravadores-icon { color: #f85d04; }
-        .aventureiros-icon { color: #6a04f0; }
-        .asa-icon { color: #08ec5f; }
+        .desbravadores-icon { 
+            color: #f85d04;
+        }
+
+        .desbravadores-icon:hover {
+            animation: spinIcon 0.8s ease-in-out;
+            filter: brightness(1.2);
+        }
+
+        .desbravadores-icon:hover i {
+            animation: glowIcon 1s ease-in-out;
+        }
+
+        .aventureiros-icon { 
+            color: #6a04f0;
+        }
+
+        .aventureiros-icon:hover {
+            animation: pulseIcon 0.6s ease-in-out;
+            filter: brightness(1.2);
+        }
+
+        .aventureiros-icon:hover i {
+            animation: glowIconPurple 1s ease-in-out;
+        }
+
+        .asa-icon { 
+            color: #08ec5f;
+        }
+
+        .asa-icon:hover {
+            animation: bounceIcon 0.6s ease-in-out;
+            filter: brightness(1.2);
+        }
+
+        .asa-icon:hover i {
+            animation: glowIconGreen 1s ease-in-out;
+        }
 
         .department-block h3 {
             font-size: 18px;
@@ -243,8 +558,42 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            transition: transform 0.2s ease, opacity 0.2s ease;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
             color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        a.btn-primary::before, a.btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.25);
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+        }
+
+        a.btn-primary:hover, a.btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        a.btn-primary:focus, a.btn-secondary:focus {
+            outline: 2px solid currentColor;
+            outline-offset: 2px;
+        }
+
+        a.btn-primary:active, a.btn-secondary:active {
+            transform: translateY(0);
+        }
+
+        a.btn-primary:active::before, a.btn-secondary:active::before {
+            width: 250px;
+            height: 250px;
         }
 
         a.btn-primary:hover, a.btn-secondary:hover {
@@ -574,6 +923,23 @@ Conecte-se aos nossos canais e venha participar conosco.
         // Inicializar tema ao carregar
         initTheme();
 
+        // ========== DETECÇÃO DO SÁBADO ADVENTISTA ==========
+        function detectSabbath() {
+            const now = new Date();
+            const day = now.getDay(); // 0 = domingo, 5 = sexta, 6 = sábado
+            const hour = now.getHours();
+            
+            // Sábado adventista: sexta-feira após 18h até sábado às 18h
+            const isSabbath = (day === 5 && hour >= 18) || (day === 6 && hour < 18);
+            
+            return isSabbath;
+        }
+
+        // Aplicar modo sábado se necessário
+        if (detectSabbath()) {
+            document.documentElement.classList.add('sabbath-mode');
+        }
+
         // ========== MENSAGEM DINÂMICA DE BOAS-VINDAS ==========
         function updateWelcomeMessage() {
             const hour = new Date().getHours();
@@ -621,6 +987,65 @@ Conecte-se aos nossos canais e venha participar conosco.
         // Chamar funções de conteúdo dinâmico
         updateWelcomeMessage();
         document.getElementById('bibleVerse').textContent = getRandomBibleVerse();
+
+        // ========== ANIMAÇÕES DE SCROLL ==========
+        // Observador de intersecção para ativar animações ao scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Adicionar classe de animação com delay
+                    entry.target.classList.add('slide-up');
+                    
+                    // Adicionar delay para efeito em cascata
+                    if (entry.target.classList.contains('department-block')) {
+                        const delayClass = `delay-${(index % 4) + 1}`;
+                        entry.target.classList.add(delayClass);
+                    }
+                    
+                    // Remover do observador para não animar novamente
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observar todos os blocos de departamento e links
+        document.querySelectorAll('.department-block').forEach((block, index) => {
+            block.style.opacity = '0';
+            observer.observe(block);
+        });
+
+        // ========== ANIMAÇÃO FADE-IN PARA LINKS ==========
+        const links = document.querySelectorAll('a.link');
+        links.forEach((link, index) => {
+            link.classList.add('fade-in');
+            link.style.animationDelay = `${0.05 + (index * 0.05)}s`;
+        });
+
+        // ========== INTERATIVIDADE MELHORADA ==========
+        // Adicionar feedback visual ao clicar em botões
+        document.querySelectorAll('a.link, a.btn-primary, a.btn-secondary').forEach(button => {
+            button.addEventListener('mousedown', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.classList.add('ripple');
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
     </script>
 </body>
 </html>
