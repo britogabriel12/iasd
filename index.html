@@ -3,90 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conecte-se com a Igreja</title>
+    <title>IASD Vila Eduardo</title>
+
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: #f4f6f8;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #f4f6f8, #e8edf2);
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
         }
 
         .container {
             background: #ffffff;
-            width: 90%;
-            max-width: 400px;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 92%;
+            max-width: 420px;
+            padding: 25px 22px;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
             text-align: center;
+        }
+
+        .logo {
+            width: 90px;
+            margin-bottom: 10px;
         }
 
         h1 {
             font-size: 22px;
-            margin-bottom: 10px;
+            margin: 5px 0;
         }
 
-        p {
-            font-size: 14px;
+        h2 {
+            font-size: 15px;
+            font-weight: normal;
             color: #555;
             margin-bottom: 20px;
         }
 
-        a {
-            display: block;
+        p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 18px;
+        }
+
+        a.link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
             text-decoration: none;
-            color: white;
-            padding: 15px;
+            color: #fff;
+            padding: 14px;
             margin: 10px 0;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: bold;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: transform 0.2s ease, opacity 0.2s ease;
         }
 
-        .instagram {
-            background: #E1306C;
+        a.link:hover {
+            transform: scale(1.02);
+            opacity: 0.95;
         }
 
-        .whatsapp {
-            background: #25D366;
-        }
+        .instagram { background: #E1306C; }
+        .whatsapp  { background: #25D366; }
+        .android   { background: #3DDC84; }
+        .ios       { background: #000000; }
+        .youtube   { background: #FF0000; }
 
-        .app {
-            background: #2c3e50;
-        }
-
-        a:hover {
-            opacity: 0.9;
+        footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #888;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>Conecte-se com a Igreja</h1>
-        <p>Escolha uma das opções abaixo:</p>
 
-        <!-- LINK DO INSTAGRAM -->
-        <a class="instagram" href="https://www.instagram.com/SEUINSTAGRAM" target="_blank">
-            Instagram
+        <!-- LOGO IASD -->
+        <img class="logo" 
+             src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Seventh-day_Adventist_Church_logo.svg" 
+             alt="Igreja Adventista do Sétimo Dia">
+
+        <h1>IASD Vila Eduardo</h1>
+        <h2>Igreja Adventista do Sétimo Dia</h2>
+
+        <p>
+            Seja bem-vindo! Aqui você encontra nossos canais oficiais e
+            aprende a dizimar e ofertar de forma simples e segura.
+        </p>
+
+        <!-- INSTAGRAM -->
+        <a class="link instagram" href="https://www.instagram.com/iasdvilaeduardo" target="_blank">
+            <i class="fab fa-instagram"></i> Instagram
         </a>
 
-        <!-- LINK DO WHATSAPP -->
-        <a class="whatsapp" href="https://wa.me/5599999999999" target="_blank">
-            WhatsApp
+        <!-- WHATSAPP -->
+        <a class="link whatsapp" href="https://wa.me/55878106-4135" target="_blank">
+            <i class="fab fa-whatsapp"></i> WhatsApp
         </a>
 
-        <!-- LINK PARA BAIXAR O APP -->
-        <a class="app" href="https://LINK-DO-APP-SEVENME" target="_blank">
-            Baixar o App SevenMe
+        <!-- SEVENME ANDROID -->
+        <a class="link android" href="https://play.google.com/store/apps/details?id=com.iatec.acms.me&pcampaignid=web_share" target="_blank">
+            <i class="fab fa-android"></i> SevenMe – Android
         </a>
-    </div>
 
-</body>
-</html>
+        <!-- SEVENME IOS -->
+        <a class="link ios" href="https://apps.apple.com/br/app/7me/id1344775660" target="_blank">
+            <i class="fab fa-apple"></i> SevenMe – iPhone (iOS)
+        </a>
+
+        <!-- YOUTUBE -->
+        <a class="link youtube" href="https://www.youtube.com/watch?v=TAvHXXeeRrU" target="_blank">
+            <i class="fab fa-youtube"></i> Aprenda a dizimar e ofertar
+        </a>
+
+        <footer>
+            “Cada um contribua segundo
