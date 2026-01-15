@@ -58,16 +58,18 @@
             background: var(--button-bg);
             border: 2px solid var(--button-border);
             border-radius: 50%;
-            width: 45px;
-            height: 45px;
+            width: 60px;
+            height: 60px;
             cursor: pointer;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            font-size: 24px;
             color: var(--text-primary);
             box-shadow: 0 2px 8px var(--shadow);
             z-index: 1000;
+            padding-top: 2px;
         }
 
         .theme-toggle:hover {
@@ -76,6 +78,27 @@
 
         .theme-toggle:active {
             transform: scale(0.95);
+        }
+
+        .theme-toggle-label {
+            display: none;
+            font-size: 10px;
+            color: var(--text-primary);
+            margin-top: 4px;
+            font-weight: 600;
+            white-space: nowrap;
+            position: absolute;
+            top: 82px;
+            right: 0;
+            background: var(--button-bg);
+            padding: 4px 8px;
+            border-radius: 6px;
+            border: 1px solid var(--button-border);
+            box-shadow: 0 2px 6px var(--shadow);
+        }
+
+        .theme-toggle:hover .theme-toggle-label {
+            display: block;
         }
 
         .container {
@@ -304,11 +327,16 @@
 
         @media (max-width: 480px) {
             .theme-toggle {
-                width: 40px;
-                height: 40px;
-                font-size: 18px;
+                width: 52px;
+                height: 52px;
+                font-size: 20px;
                 top: 12px;
                 right: 12px;
+            }
+
+            .theme-toggle-label {
+                font-size: 9px;
+                top: 68px;
             }
 
             .container {
@@ -357,6 +385,7 @@
     <!-- Botão para alternar tema -->
     <button class="theme-toggle" id="themeToggle" title="Alternar tema">
         <i class="fas fa-moon"></i>
+        <span class="theme-toggle-label" id="themeLabelToggle">Modo escuro</span>
     </button>
 
     <div class="container">
@@ -380,9 +409,8 @@
         </div>
 
         <p>
-             Seja muito bem-vindo à IASD Vila Eduardo!
-Aqui você encontra nossos canais oficiais e aprende, de forma simples e segura, como dizimar e ofertar. 
-Também disponibilizamos orientações para você aprender a chegar até a Vila Eduardo e estar conosco presencialmente.
+             Seja bem-vindo! Venha conhecer a Igreja Adventista do Sétimo Dia – Vila Eduardo.
+Conecte-se aos nossos canais e venha participar conosco.
         </p>
 
         <!-- INSTAGRAM INSTITUCIONAL -->
@@ -415,14 +443,14 @@ Também disponibilizamos orientações para você aprender a chegar até a Vila 
             <i class="fab fa-whatsapp"></i> WhatsApp
         </a>
 
-        <!-- SEVENME ANDROID -->
+        <!-- 7ME ANDROID -->
         <a class="link android" href="https://play.google.com/store/apps/details?id=com.iatec.acms.me&pcampaignid=web_share" target="_blank">
-            <i class="fab fa-android"></i> SevenMe – Android
+            <i class="fab fa-android"></i> 7Me – Android
         </a>
 
-        <!-- SEVENME IOS -->
+        <!-- 7ME IOS -->
         <a class="link ios" href="https://apps.apple.com/br/app/7me/id1344775660" target="_blank">
-            <i class="fab fa-apple"></i> SevenMe – iPhone (iOS)
+            <i class="fab fa-apple"></i> 7Me – iPhone (iOS)
         </a>
 
         <!-- APRENDA A DIZIMAR E OFERTAR -->
@@ -521,14 +549,17 @@ Também disponibilizamos orientações para você aprender a chegar até a Vila 
         // Atualizar ícone do tema
         function updateThemeIcon() {
             const icon = document.getElementById('themeToggle').querySelector('i');
+            const label = document.getElementById('themeLabelToggle');
             const isDark = document.documentElement.classList.contains('dark-theme');
             
             if (isDark) {
                 icon.classList.remove('fa-moon');
                 icon.classList.add('fa-sun');
+                label.textContent = 'Modo claro';
             } else {
                 icon.classList.remove('fa-sun');
                 icon.classList.add('fa-moon');
+                label.textContent = 'Modo escuro';
             }
         }
 
