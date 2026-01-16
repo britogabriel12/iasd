@@ -539,6 +539,28 @@
             animation: glowIconGreen 1s ease-in-out;
         }
 
+        .interessados-icon {
+            color: #e74c3c;
+        }
+
+        .interessados-icon:hover {
+            animation: pulseIcon 0.6s ease-in-out;
+            filter: brightness(1.2);
+        }
+
+        .interessados-icon:hover i {
+            animation: glowIconInteressados 1s ease-in-out;
+        }
+
+        @keyframes glowIconInteressados {
+            0%, 100% {
+                text-shadow: none;
+            }
+            50% {
+                text-shadow: 0 0 15px rgba(231, 76, 60, 0.6);
+            }
+        }
+
         .department-block h3 {
             font-size: 18px;
             margin: 10px 0 12px 0;
@@ -622,6 +644,15 @@
 
         a.btn-primary.asa {
             background: #08ec5f;
+        }
+
+        a.btn-primary.interessados {
+            background: #e74c3c;
+        }
+
+        a.btn-secondary.interessados {
+            border-color: #e74c3c;
+            color: #e74c3c;
         }
 
         a.btn-secondary {
@@ -798,9 +829,9 @@ Conecte-se aos nossos canais e venha participar conosco.
             <i class="fas fa-hands-praying"></i> Pedido de Oração
         </a>
 
-        <!-- WHATSAPP -->
-        <a class="link whatsapp" href="https://wa.me/558781064135" target="_blank">
-            <i class="fab fa-whatsapp"></i> WhatsApp
+        <!-- WHATSAPP PASTORAL -->
+        <a class="link whatsapp" href="https://wa.me/558197013938" target="_blank">
+            <i class="fab fa-whatsapp"></i> WhatsApp Pastoral – IASD Vila Eduardo
         </a>
 
         <!-- 7ME ANDROID -->
@@ -883,6 +914,24 @@ Conecte-se aos nossos canais e venha participar conosco.
                 </a>
                 <a class="btn-secondary asa" href="https://www.instagram.com/acaosolidaria.ve" target="_blank">
                     <i class="fab fa-instagram"></i> Instagram – ASA Vila Eduardo
+                </a>
+            </div>
+        </div>
+
+        <!-- MINISTÉRIO DOS INTERESSADOS -->
+        <div class="department-block">
+            <span class="department-icon interessados-icon">
+                <i class="fas fa-heart"></i>
+            </span>
+            <h3>Ministério dos Interessados</h3>
+            <p>
+                Está conhecendo a Igreja Adventista do Sétimo Dia ou visitando pela primeira vez? 
+                O Ministério dos Interessados existe para caminhar com você, tirar dúvidas, ouvir sua história 
+                e ajudar no seu crescimento espiritual, sempre com respeito, carinho e atenção.
+            </p>
+            <div class="button-group">
+                <a class="btn-primary interessados" href="https://wa.me/558791128283" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Quero conversar / receber acompanhamento
                 </a>
             </div>
         </div>
